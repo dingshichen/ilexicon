@@ -1,0 +1,25 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=PyCharm
+
+### 新增
+POST localhost:5000/api/word
+Content-Type: application/json
+
+{
+  "chnName": "id",
+  "engName": "id",
+  "engAbbr": "id",
+  "stdWordFlag": true
+}
+
+### 修改
+PUT localhost:5000/api/word/1
+Content-Type: application/json
+
+{
+  "chnName": "id",
+  "engName": "id",
+  "engAbbr": "id",
+  "stdWordFlag": true
+}

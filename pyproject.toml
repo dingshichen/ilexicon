@@ -1,0 +1,27 @@
+[project]
+name = "ilexicon"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "ding.shichen",email = "foreverhuiqiao@126.com"}
+]
+readme = "README.md"
+requires-python = "^3.13"
+dependencies = [
+    "flask (>=3.1.0,<4.0.0)",
+    "flask-mysqldb (>=2.0.0,<3.0.0)",
+    "flask-sqlalchemy (>=3.1.1,<4.0.0)",
+    "mysqlclient (>=2.2.7,<3.0.0)",
+    "sqlalchemy (>=2.0.37,<3.0.0)",
+]
+
+
+[build-system]
+requires = [
+    "poetry-core>=2.0.0,<3.0.0",
+    "build==1.2.2.post1",
+    "setuptools==75.6.0",
+    "wheel==0.45.1",
+    "packaging==24.2"
+]
+build-backend = "poetry.core.masonry.api"
