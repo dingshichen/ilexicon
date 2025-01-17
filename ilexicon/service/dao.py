@@ -1,6 +1,6 @@
 from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer
 
-from ilexicon import db
+from ilexicon import db, ApiModel
 
 term_fragment = db.Table("term_fragment",
                          Column("term_id", BigInteger, ForeignKey("term.term_id"), primary_key=True),
@@ -13,8 +13,8 @@ class Word(db.Model):
     chn_name = Column("chn_nm", String)
     eng_name = Column("eng_nm", String)
     eng_abbr = Column("eng_abbr", String)
-    std_word_flag = Column("std_word_flg", Boolean)
-    std_word_id = Column(BigInteger, nullable=True)
+    std_word_id = Column(BigInteger, ForeignKey("word.word_id"), nullable=True)
+    std_word = db.relationship("Word", uselist=False)
 
 
 class Domain(db.Model):
