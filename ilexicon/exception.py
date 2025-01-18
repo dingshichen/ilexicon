@@ -12,5 +12,5 @@ class ApiException(Exception):
 
 class EntityNotFoundException(ApiException):
 
-    def __init__(self, message: str | None):
+    def __init__(self, message: str | None = None):
         super().__init__(ResultStatus.ENTITY_NOT_FOUND.code, message if message else ResultStatus.ENTITY_NOT_FOUND.desc)

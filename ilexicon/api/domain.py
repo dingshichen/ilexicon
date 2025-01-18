@@ -39,7 +39,7 @@ def update(domain_id):
     body = request.json
     domain = Domain.query.get(domain_id)
     if not domain:
-        raise EntityNotFoundException("")
+        raise EntityNotFoundException()
     domain.logic_data_type = body["logicDataType"]
     domain.length = body["length"]
     domain.precision = body["precision"]
@@ -50,4 +50,5 @@ def update(domain_id):
 @api.delete("/domain/<domain_id>")
 def delete(domain_id):
     Domain.query.filter_by(domain_id=domain_id).delete()
+    # TODO 级联删除用语
     db.session.commit()

@@ -1,5 +1,5 @@
 from ilexicon import ApiModel
-from ilexicon.service.dao import Word, Domain
+from ilexicon.service.dao import Word, Domain, Term
 
 
 class WordOption(ApiModel):
@@ -84,3 +84,56 @@ class DomainDetail(DomainItem):
 
     def __init__(self, domain: Domain):
         super().__init__(domain)
+
+
+class TermOption(ApiModel):
+    term_id: int
+    chn_name: str
+
+    def __init__(self, term: Term):
+        self.term_id = term.term_id
+        self.chn_name = term.chn_name
+
+    def as_dict(self) -> dict:
+        return {
+            "termId": self.term_id,
+            "chnName": self.chn_name,
+        }
+
+class TermItem(TermOption):
+    eng_name = str
+    eng_abbr = str
+    std_term_flag = bool
+
+    def __init__(self, term: Term):
+        super().__init__(term)
+        self.eng_name = term.eng_name
+        self.eng_abbr = term.eng_abbr
+        self.std_term_flag = term.std_term_flag
+
+    def as_dict(self) -> dict:
+        return {
+            "termId": self.term_id,
+            "chnName": self.chn_name,
+            "engName": self.eng_name,
+            "engAbbr": self.eng_abbr,
+            "stdTermFlag": self.std_term_flag,
+        }
+
+
+class TermDetail(TermItem):
+    words = tuple[WordOption]
+
+    def __init__(self, term: Term):
+        super().__init__(term)
+
+    def as_dict(self) -> dict:
+        return {
+            "termId": self.term_id,
+            "chnName": self.chn_name,
+            "engName": self.eng_name,
+            "engAbbr": self.eng_abbr,
+            "stdTermFlag": self.std_term_flag,
+            "words": [word.as_dict() for word in self.words],
+        }
+

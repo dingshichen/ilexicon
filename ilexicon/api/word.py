@@ -39,7 +39,7 @@ def update(word_id):
     body = request.json
     word = Word.query.get(word_id)
     if not word:
-        raise EntityNotFoundException("")
+        raise EntityNotFoundException()
     word.chn_name = body["chnName"]
     word.eng_name = body["engName"]
     word.eng_abbr = body["engAbbr"]
@@ -49,4 +49,5 @@ def update(word_id):
 @api.delete("/word/<word_id>")
 def delete(word_id):
     Word.query.filter_by(word_id=word_id).delete()
+    # TODO 级联删除用语、域
     db.session.commit()
