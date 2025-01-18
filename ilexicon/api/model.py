@@ -1,5 +1,5 @@
 from ilexicon import ApiModel
-from ilexicon.service.dao import Word
+from ilexicon.service.dao import Word, Domain
 
 
 class WordOption(ApiModel):
@@ -39,3 +39,48 @@ class WordDetail(WordItem):
 
     def __init__(self, word: Word):
         super().__init__(word)
+
+
+class DomainOption(ApiModel):
+    domain_id: int
+    word: WordOption
+
+    def __init__(self, domain: Domain):
+        self.domain_id = domain.domain_id
+        self.word = WordOption(domain.word)
+
+    def as_dict(self) -> dict:
+        return {
+            "domainId": self.domain_id,
+            "word": self.word.as_dict(),
+        }
+
+
+class DomainItem(DomainOption):
+    logic_data_type: str
+    length: int
+    precision: int
+    default_flag: bool
+
+    def __init__(self, domain: Domain):
+        super().__init__(domain)
+        self.logic_data_type = domain.logic_data_type
+        self.length = domain.length
+        self.precision = domain.precision
+        self.default_flag = domain.default_flag
+
+    def as_dict(self) -> dict:
+        return {
+            "domainId": self.domain_id,
+            "word": self.word.as_dict(),
+            "logicDataType": self.logic_data_type,
+            "length": self.length,
+            "precision": self.precision,
+            "defaultFlag": self.default_flag,
+        }
+
+
+class DomainDetail(DomainItem):
+
+    def __init__(self, domain: Domain):
+        super().__init__(domain)

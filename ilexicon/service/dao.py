@@ -1,6 +1,6 @@
 from sqlalchemy import Column, BigInteger, String, Boolean, ForeignKey, Integer
 
-from ilexicon import db, ApiModel
+from ilexicon import db
 
 term_fragment = db.Table("term_fragment",
                          Column("term_id", BigInteger, ForeignKey("term.term_id"), primary_key=True),
