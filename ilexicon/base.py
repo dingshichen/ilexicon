@@ -10,6 +10,7 @@ class ResultStatus(Enum):
     FAIL = -1, "fail"
     SYSTEM_ERROR = -1000, "系统错误"
     ENTITY_NOT_FOUND = -1011, "数据不存在"
+    PARAM_ERROR = -1012, "参数错误"
 
     def __init__(self, code: int, desc: str):
         self._code = code

@@ -31,7 +31,8 @@ def add():
                 chn_name=body["chnName"],
                 eng_name=body["engName"],
                 eng_abbr=body["engAbbr"],
-                std_term_flag=std_term_flag)
+                std_term_flag=std_term_flag,
+                words=body["words"])
     # TODO 保存词素结构
     db.session.add(term)
     db.session.commit()
@@ -46,6 +47,7 @@ def update(term_id):
     term.chn_name = body["chnName"]
     term.eng_name = body["engName"]
     term.eng_abbr = body["engAbbr"]
+    term.words = body["words"]
     # TODO 计算是否是标准用语
     db.session.commit()
 

@@ -1,9 +1,11 @@
+import re
+
 from flask import request
 
 from ilexicon import db
 from ilexicon.api import api
-from ilexicon.api.model import WordDetail
-from ilexicon.exception import EntityNotFoundException
+from ilexicon.api.model import WordDetail, WordOption
+from ilexicon.exception import EntityNotFoundException, ParamErrorException
 from ilexicon.id import generate_unique_id
 from ilexicon.service.dao import Word
 
@@ -20,6 +22,15 @@ def list_words():
     paging = Word.query.paginate(page=page, per_page=size)
     paging.items = [WordDetail(word) for word in paging.items]
     return paging
+
+@api.get("/word/fragment")
+def list_fragments():
+    text = request.args.get("text", type=str)
+    if not text or len(re.sub(r"\s+", "", text)) == 0:
+        raise ParamErrorException()
+    strings = text.split(" ")
+    words = Word.query.filter(Word.chn_name.in_(strings))
+    return [WordOption(word) for word in words]
 
 @api.post("/word")
 def add():
