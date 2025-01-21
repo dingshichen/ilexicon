@@ -7,3 +7,45 @@
 /dataSources/
 /dataSources.local.xml
 /.idea/
+
+/ilexicon-web/node_modules
+/ilexicon-web/.pnp
+/ilexicon-web/pnp.js
+
+# testing
+/ilexicon-web/coverage
+
+# next.js
+/ilexicon-web/.next/
+/ilexicon-web/out/
+
+# production
+/ilexicon-web/build
+
+# misc
+/ilexicon-web/.DS_Store
+/ilexicon-web/*.pem
+
+# debug
+/ilexicon-web/npm-debug.log*
+/ilexicon-web/yarn-debug.log*
+/ilexicon-web/yarn-error.log*
+
+# local env files
+/ilexicon-web/.env.local
+/ilexicon-web/.env.development.local
+/ilexicon-web/.env.test.local
+/ilexicon-web/.env.production.local
+
+# vercel
+/ilexicon-web/.vercel
+
+# typescript
+/ilexicon-web/*.tsbuildinfo
+
+
+# eslint
+/ilexicon-web/.eslintcache
+
+# stylelint
+/ilexicon-web/.stylelintcache
