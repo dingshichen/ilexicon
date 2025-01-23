@@ -11,7 +11,7 @@ import {
   IconExclamationCircle,
   IconUser,
   IconMenuFold,
-  IconMenuUnfold,
+  IconMenuUnfold, IconBook
 } from '@arco-design/web-react/icon';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
@@ -50,6 +50,8 @@ function getIconFromKey(key) {
       return <IconExclamationCircle className={styles.icon} />;
     case 'user':
       return <IconUser className={styles.icon} />;
+    case 'lexicon':
+      return <IconBook className={styles.icon} />;
     default:
       return <div className={styles['icon-empty']} />;
   }

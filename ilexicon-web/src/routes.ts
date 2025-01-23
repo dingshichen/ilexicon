@@ -150,6 +150,24 @@ export const routes: IRoute[] = [
       },
     ],
   },
+  {
+    name: 'menu.lexicon',
+    key: 'lexicon',
+    children: [
+      {
+        name: 'menu.lexicon.term',
+        key: 'lexicon/term',
+      },
+      {
+        name: 'menu.lexicon.word',
+        key: 'lexicon/word',
+      },
+      {
+        name: 'menu.lexicon.domain',
+        key: 'lexicon/domain',
+      },
+    ],
+  },
 ];
 
 export const getName = (path: string, routes) => {
