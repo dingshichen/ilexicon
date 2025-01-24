@@ -84,6 +84,7 @@ const i18n = {
     'menu.user.info': '用户信息',
     'menu.user.setting': '用户设置',
     'menu.lexicon.term': '用语管理',
+    'menu.lexicon.term.edit': '用语编辑',
     'menu.lexicon.word': '单词管理',
     'menu.lexicon.domain': '域管理',
     'menu.user.switchRoles': '切换角色',

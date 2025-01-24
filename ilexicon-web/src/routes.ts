@@ -159,6 +159,11 @@ export const routes: IRoute[] = [
         key: 'lexicon/term',
       },
       {
+        name: 'menu.lexicon.term.edit',
+        key: 'lexicon/term/edit',
+        ignore: true,
+      },
+      {
         name: 'menu.lexicon.word',
         key: 'lexicon/word',
       },

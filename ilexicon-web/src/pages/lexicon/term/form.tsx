@@ -67,11 +67,11 @@ function TermSearch(props: {
                 options={[
                   {
                     label: '是',
-                    value: 'true',
+                    value: 1,
                   },
                   {
                     label: '否',
-                    value: 'false',
+                    value: 0,
                   },
                 ]}
                 allowClear
