@@ -7,6 +7,7 @@ import styles from '@/pages/list/search-table/style/index.module.less';
 import { IconDownload, IconPlus } from '@arco-design/web-react/icon';
 import './mock';
 import TermSearch from '@/pages/lexicon/term/form';
+import { navigate } from '@/utils/route';
 
 function TermTable() {
   const tableCallback = async (record, type) => {
@@ -64,21 +65,25 @@ function TermTable() {
     setFormParams(params);
   }
 
+  function handleCreate() {
+    navigate('/lexicon/term/edit');
+  }
+
   return (
     <Card>
       <Title heading={6}>用语列表</Title>
       <TermSearch onSearch={handleSearch} />
       <div className={styles['button-group']}>
         <Space>
-          <Button type="primary" icon={<IconPlus />}>
+          <Button type="primary" icon={<IconPlus />} onClick={handleCreate}>
             新建
           </Button>
         </Space>
-        <Space>
-          <Button icon={<IconDownload />}>
-            下载
-          </Button>
-        </Space>
+        {/*<Space>*/}
+        {/*  <Button icon={<IconDownload />}>*/}
+        {/*    下载*/}
+        {/*  </Button>*/}
+        {/*</Space>*/}
       </div>
       <Table
         rowKey="id"

@@ -42,6 +42,10 @@ function TermEdit() {
     formRef.current.resetFields();
   }
 
+  function handleBack() {
+    window.history.back();
+  }
+
   return (
     <div className={styles.container}>
       <Form layout="vertical" ref={formRef} className={styles['lexicon-term-edit']}>
@@ -121,6 +125,9 @@ function TermEdit() {
       </Form>
       <div className={styles.actions}>
         <Space>
+          <Button onClick={handleBack} size="large">
+            返回
+          </Button>
           <Button onClick={handleReset} size="large">
             重置
           </Button>
